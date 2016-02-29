@@ -1,0 +1,201 @@
+/* ###*B*###
+ * ERIKA Enterprise - a tiny RTOS for small microcontrollers
+ *
+ * Copyright (C) 2002-2011  Evidence Srl
+ *
+ * This file is part of ERIKA Enterprise.
+ *
+ * ERIKA Enterprise is free software; you can redistribute it
+ * and/or modify it under the terms of the GNU General Public License
+ * version 2 as published by the Free Software Foundation, 
+ * (with a special exception described below).
+ *
+ * Linking this code statically or dynamically with other modules is
+ * making a combined work based on this code.  Thus, the terms and
+ * conditions of the GNU General Public License cover the whole
+ * combination.
+ *
+ * As a special exception, the copyright holders of this library give you
+ * permission to link this code with independent modules to produce an
+ * executable, regardless of the license terms of these independent
+ * modules, and to copy and distribute the resulting executable under
+ * terms of your choice, provided that you also meet, for each linked
+ * independent module, the terms and conditions of the license of that
+ * module.  An independent module is a module which is not derived from
+ * or based on this library.  If you modify this code, you may extend
+ * this exception to your version of the code, but you are not
+ * obligated to do so.  If you do not wish to do so, delete this
+ * exception statement from your version.
+ *
+ * ERIKA Enterprise is distributed in the hope that it will be
+ * useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License version 2 for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * version 2 along with ERIKA Enterprise; if not, write to the
+ * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ * Boston, MA 02110-1301 USA.
+ * ###*E*### */
+
+/*
+ * Author: 2015 Gianluca Franchino
+ * 
+ */
+
+CPU mySystem {
+
+	OS myOs {
+
+		EE_OPT = "DEBUG";
+		
+		CPU_DATA = CORTEX_MX {
+			MODEL = M4;
+			//APP_SRC = "Watch.c";
+			APP_SRC = "Event.c";
+			APP_SRC = "Widget.c";
+			APP_SRC = "WidgetConfig.c";
+			APP_SRC = "SW_wrapper.c";
+			APP_SRC = "STMPE811QTR.c";
+			
+			//old
+			APP_SRC = "diskio.c";
+			APP_SRC = "ff.c";
+			APP_SRC = "uart_print_red.c";
+			APP_SRC = "SD_CardController.c";
+			APP_SRC = "FileManagement.c";
+			APP_SRC = "stm32f4_discovery_audio_dac.c";
+			APP_SRC = "waveplayer2.c";
+			APP_SRC = "Touch.c";
+			APP_SRC = "WigetsView.c";
+			APP_SRC = "pictures.c";
+			APP_SRC = "FSMAudioPlayer.c";
+			APP_SRC = "code.c";
+			COMPILER_TYPE = GNU;
+			MULTI_STACK = FALSE;
+		};
+		
+		EE_OPT = "__USE_SYSTICK__"; 
+
+		MCU_DATA = STM32 {
+			MODEL = STM32F4xx;
+		};
+
+        
+		EE_OPT = "__ADD_LIBS__";
+		
+		LIB = ENABLE { NAME = "ST_CMSIS"; };
+		
+		LIB = ENABLE { 
+			NAME = "STM32F4XX_SPD";
+			STM32F4XX_SPD = ENABLE {
+                USEDMA = TRUE;
+                USEGPIO = TRUE;
+                USESDIO = TRUE;
+                USESPI = TRUE;
+                USEMISC = TRUE;
+                 USEDAC = TRUE;
+                USETIM = TRUE;
+				USEEXTI = TRUE;
+				USEFLASH = TRUE;
+				USEI2C = TRUE;
+				//USEI2S = TRUE;
+				
+			
+            };
+		};
+		
+		LIB = ENABLE {
+			NAME = "STM32F4_DISCOVERY";
+			STM32F4_DISCOVERY = ENABLE {
+                USELEDS = TRUE;
+                USESD = TRUE;
+                USECOM = TRUE;
+                USELCD = TRUE;
+               USEBUTTONS = TRUE;
+			};			
+		};
+		
+		STATUS = EXTENDED;
+		STARTUPHOOK = FALSE;
+		ERRORHOOK = FALSE;
+		SHUTDOWNHOOK = FALSE;
+		PRETASKHOOK = FALSE;
+		POSTTASKHOOK = FALSE;
+		USEGETSERVICEID = FALSE;
+		USEPARAMETERACCESS = FALSE;
+		USERESSCHEDULER = FALSE;
+
+		KERNEL_TYPE = FP;
+
+	};
+	
+	COUNTER myCounter;
+	
+
+
+    ALARM AlarmTaskTestOk {
+        COUNTER = myCounter;
+        ACTION = ACTIVATETASK { TASK = TaskTestOk; };
+    };
+    
+    ALARM AlarmTaskTest {
+		COUNTER = myCounter;
+		ACTION = ACTIVATETASK { TASK = TaskSDTest; };
+	};
+	
+	ALARM AlarmTaskLCD {
+		COUNTER = myCounter;
+		ACTION = ACTIVATETASK { TASK = TaskLCD; };
+	};
+ 	
+
+	TASK TaskSDTest {
+        PRIORITY = 0x02;   /* Low priority */
+		AUTOSTART = FALSE;
+		STACK = SHARED;
+		ACTIVATION = 1;    /* only one pending activation */
+		SCHEDULE = FULL;
+    };
+    
+    TASK TaskTestOk {
+        PRIORITY = 0x01;   /* Low priority */
+		AUTOSTART = FALSE;
+		STACK = SHARED;
+		ACTIVATION = 1;    /* only one pending activation */
+		SCHEDULE = FULL;
+    };
+	
+	TASK TaskLCD {
+		PRIORITY = 0x03;   /* Low priority */
+		AUTOSTART = FALSE;
+		STACK = SHARED;
+		ACTIVATION = 1;    /* only one pending activation */
+		SCHEDULE = FULL;
+	};
+	
+    ISR systick_handler {
+		CATEGORY = 2;
+		ENTRY = "SYSTICK";
+		PRIORITY = 1;
+	};
+	
+	ISR SDIO_IRQHandler {
+        CATEGORY = 1;
+        ENTRY = "SDIO";
+        PRIORITY = 2;
+    };
+     
+    ISR SD_SDIO_DMA_IRQHandler {
+        CATEGORY = 1;
+        ENTRY = "DMA2_STREAM3";
+        PRIORITY = 2;
+    };
+     ISR DAC_DMA_IRQHandler {
+        CATEGORY = 1;
+        ENTRY = "DMA1_STREAM5";
+        PRIORITY = 2;
+    };
+    
+
+};
