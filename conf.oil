@@ -55,7 +55,6 @@ CPU mySystem {
 			APP_SRC = "Event.c";
 			APP_SRC = "Widget.c";
 			APP_SRC = "WidgetConfig.c";
-			APP_SRC = "SW_wrapper.c";
 			APP_SRC = "STMPE811QTR.c";
 			
 			//old
@@ -64,7 +63,10 @@ CPU mySystem {
 			APP_SRC = "uart_print_red.c";
 			APP_SRC = "SD_CardController.c";
 			APP_SRC = "FileManagement.c";
-			APP_SRC = "stm32f4_discovery_audio_dac.c";
+			APP_SRC = "GPIO_Conf.c";
+			APP_SRC = "Timer_Conf.c";
+			APP_SRC = "DAC_Conf.c";
+			APP_SRC = "DMA_Conf.c";
 			APP_SRC = "waveplayer2.c";
 			APP_SRC = "Touch.c";
 			APP_SRC = "WigetsView.c";
@@ -136,12 +138,12 @@ CPU mySystem {
 
     ALARM AlarmTaskTestOk {
         COUNTER = myCounter;
-        ACTION = ACTIVATETASK { TASK = TaskTestOk; };
+        ACTION = ACTIVATETASK { TASK = TaskPlayBack; };
     };
     
     ALARM AlarmTaskTest {
 		COUNTER = myCounter;
-		ACTION = ACTIVATETASK { TASK = TaskSDTest; };
+		ACTION = ACTIVATETASK { TASK = TaskTestOk; };
 	};
 	
 	ALARM AlarmTaskLCD {
@@ -150,7 +152,7 @@ CPU mySystem {
 	};
  	
 
-	TASK TaskSDTest {
+	TASK TaskTestOk {
         PRIORITY = 0x02;   /* Low priority */
 		AUTOSTART = FALSE;
 		STACK = SHARED;
@@ -158,7 +160,7 @@ CPU mySystem {
 		SCHEDULE = FULL;
     };
     
-    TASK TaskTestOk {
+    TASK TaskPlayBack {
         PRIORITY = 0x01;   /* Low priority */
 		AUTOSTART = FALSE;
 		STACK = SHARED;
@@ -191,11 +193,14 @@ CPU mySystem {
         ENTRY = "DMA2_STREAM3";
         PRIORITY = 2;
     };
-     ISR DAC_DMA_IRQHandler {
-        CATEGORY = 1;
-        ENTRY = "DMA1_STREAM5";
-        PRIORITY = 2;
-    };
+    
+
+    
+//     ISR DAC_DMA_IRQHandler {
+//        CATEGORY = 1;
+//        ENTRY = "DMA1_STREAM5";
+//        PRIORITY = 2;
+//    };
     
 
 };

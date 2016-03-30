@@ -1,5 +1,5 @@
-#ifndef __SD_CARDCONTROL_H
-#define __SD_CARDCONTROL_H
+#ifndef __SD_CARDCONTROLER_H
+#define __SD_CARDCONTROLER_H
 
 #include "ee.h"
 #include "ee_irq.h"
@@ -34,8 +34,8 @@
 
 
 //extern mylist;
-void mount_SDCard();
-TCHAR * GetPath();
+void mount_SDCard();//Important
+TCHAR * GetPath();//Important
 static void fault_err (FRESULT rc);
 void *  OpenFolder(const TCHAR* _path);
 void  ListFolderSDCard(void * _Folder);

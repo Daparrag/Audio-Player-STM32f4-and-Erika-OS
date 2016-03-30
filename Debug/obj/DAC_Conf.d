@@ -1,5 +1,4 @@
-obj/waveplayer2.o: /cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/waveplayer2.c \
- /cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/waveplayer2.h \
+obj/DAC_Conf.o: /cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/DAC_Conf.c \
  /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/contrib/st/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h \
  /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/contrib/st/CMSIS/Include/core_cm4.h \
  /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/contrib/st/CMSIS/Include/core_cmInstr.h \
@@ -21,19 +20,7 @@ obj/waveplayer2.o: /cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/waveplayer2
  /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/contrib/st/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_tim.h \
  /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/contrib/st/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_usart.h \
  /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/contrib/st/STM32F4xx_StdPeriph_Driver/inc/misc.h \
- /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/contrib/st/STM32F4-Discovery/inc/stm32f4_discovery.h \
- /cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/GPIO_Conf.h \
- /cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/Timer_Conf.h \
- /cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/DAC_Conf.h \
- /cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/DMA_Conf.h \
- /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/contrib/st/STM32F4-Discovery/inc/stm32f4_discovery_lis302dl.h \
- /cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/ff.h \
- /cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/integer.h \
- /cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/ffconf.h \
- /cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/stm32f4_discovery_lcd.h \
- /cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/fonts.h
-
-/cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/waveplayer2.h:
+ /cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/DAC_Conf.h
 
 /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/contrib/st/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h:
 
@@ -77,24 +64,4 @@ obj/waveplayer2.o: /cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/waveplayer2
 
 /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/contrib/st/STM32F4xx_StdPeriph_Driver/inc/misc.h:
 
-/cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/contrib/st/STM32F4-Discovery/inc/stm32f4_discovery.h:
-
-/cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/GPIO_Conf.h:
-
-/cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/Timer_Conf.h:
-
 /cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/DAC_Conf.h:
-
-/cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/DMA_Conf.h:
-
-/cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/contrib/st/STM32F4-Discovery/inc/stm32f4_discovery_lis302dl.h:
-
-/cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/ff.h:
-
-/cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/integer.h:
-
-/cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/ffconf.h:
-
-/cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/stm32f4_discovery_lcd.h:
-
-/cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/fonts.h:

@@ -36,26 +36,21 @@ void AddListHeadTail(char _index,struct headdef *_head,struct taildef *_tail){
 
 struct Listdef * create_list(char Index, char isdir,char IndexHT,FILINFO *infofile){
 
-	struct headdef *nhead = (struct headdef*)malloc(sizeof(struct headdef));
-	struct taildef *ntail = (struct taildef*)malloc(sizeof(struct taildef));
-	struct Listdef *ptr = (struct Listdef*)malloc(sizeof(struct Listdef));
-	ptr->index=Index;
-	ptr->isfile=isdir;
-	memcpy(ptr->fname, infofile->fname, sizeof infofile->fname);
-	f_getcwd(&(*(ptr)->buff),sizeof ptr->buff);
-	//ptr->fname=infofile->fname;
-	//ptr->Filedata=fno;
-	//ptr->InfoDIR=dir;
-	//ptr->infofile=fileinfo;
+	struct headdef *nhead = (struct headdef*)malloc(sizeof(struct headdef));//create header
+	struct taildef *ntail = (struct taildef*)malloc(sizeof(struct taildef));//create tail
+	struct Listdef *ptr = (struct Listdef*)malloc(sizeof(struct Listdef));//create first element of the list
+	ptr->index=Index;//setup Index to the element of the list
+	ptr->isfile=isdir;//define if the element is a file or directory
+	memcpy(ptr->fname, infofile->fname, sizeof infofile->fname);//compy the name
+	f_getcwd(&(*(ptr)->buff),sizeof ptr->buff);//copy the path
 	ptr->SubFolder=NULL;
 	ptr->nextElement=NULL;
-	AddListHeadTail(IndexHT,nhead,ntail);
-	nhead->ValueHead=ptr;
-	nhead->indexhead=0;
-	ntail->Valuetail=ptr;
+	AddListHeadTail(IndexHT,nhead,ntail);//create the header and tail
+	nhead->ValueHead=ptr;//put Value of the header
+	nhead->indexhead=0;//put the index of the header
+	ntail->Valuetail=ptr;//Put the value of the tail
 	SetUpCurrentHeadTail(nhead,ntail);
-	//ListHeadTail->sizeList=Index;
-	return ptr;
+	return ptr;//return the list element;
 }
 
 void DeleteList(){
@@ -63,26 +58,26 @@ void DeleteList(){
 	do{
 
 
-				temtail->indextail=(Ctail->indextail)-1;
-				temtail->Valuetail=Ctail->Valuetail->prevElement;
+				temtail->indextail=(Ctail->indextail)-1;//The index of the temp tail is the last tail -1.
+				temtail->Valuetail=Ctail->Valuetail->prevElement;//The value is the previous element
 
-				LCD_DisplayStringXY(0, 0,"Asigned");
-				LCD_DisplayStringXY(0,10,temtail->Valuetail->fname);
-				DelaySD();
-				LCD_ClearLine(LINE(1));
-				free(Ctail->Valuetail);
-				Ctail->indextail=temtail->indextail;
-				Ctail->Valuetail=temtail->Valuetail;;
+				LCD_DisplayStringXY(0, 0,"Asigned");//display
+				LCD_DisplayStringXY(0,10,temtail->Valuetail->fname);//display
+				DelaySD();//delay for display
+				LCD_ClearLine(LINE(1));//clear the screen
+				free(Ctail->Valuetail);//delaocate memory
+				Ctail->indextail=temtail->indextail;//the current tail became the temporal tail
+				Ctail->Valuetail=temtail->Valuetail;;//the current value became the temporal tail pointer value
 
 
 				//LCD_ClearLineWhitoutFont(LINE(5));
-	}while(temtail->indextail>Chead->indexhead);
-	free(temtail);
-	free(Chead);
-	free(Ctail);
+	}while(temtail->indextail>Chead->indexhead);//Until we reach the header
+	free(temtail);//delete the temporal tail
+	free(Chead);//delete the header.
+	free(Ctail);//delete the tail.
 }
 
-struct Listdef * create_Slist(char Index, char isdir,char IndexHT){//,DIR dir,FIL fno, FILINFO fileinfo
+struct Listdef * create_Slist(char Index, char isdir,char IndexHT){//,DIR dir,FIL fno, FILINFO fileinfo //Not USED
 
 	struct headdef *nhead = (struct headdef*)malloc(sizeof(struct headdef));
 	struct taildef *ntail = (struct taildef*)malloc(sizeof(struct taildef));
@@ -111,8 +106,8 @@ void add_to_list (List * _list,uint8_T Index, char isdir, char add_to_end,char I
 
 	if(Chead==NULL)
     {
-    newptr  = create_list(Index,isdir,IndexTailHeadList,infofile);
-    f_getcwd(&(*(newptr)->buff),sizeof newptr->buff);
+    newptr  = create_list(Index,isdir,IndexTailHeadList,infofile);//if not list is created before then create the list
+    f_getcwd(&(*(newptr)->buff),sizeof newptr->buff);//asign the path
     }
 
 	else {
@@ -141,7 +136,7 @@ void add_to_list (List * _list,uint8_T Index, char isdir, char add_to_end,char I
 			//ListHeadTail->sizeList=Index;
 		}
 		else
-		{
+		{//NOT used
 			//Chead=NULL;
 			newptr->nextElement=_list;
 			Chead->ValueHead=newptr;

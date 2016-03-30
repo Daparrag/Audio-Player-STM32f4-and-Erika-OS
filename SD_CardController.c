@@ -104,6 +104,7 @@ static void fault_err (FRESULT rc)
 
 void mount_SDCard(){
 	if (f_mount(&filesystem, "", 0) != FR_OK) {
+
 			LCD_DisplayStringLine(LINE(9),"could not open the file system");
 		}
 }
@@ -112,7 +113,7 @@ void *  OpenFolder(const TCHAR* _path){
 
 	ret = f_opendir(&dir,_path);
 		if (ret!=FR_OK) {
-			LCD_SetTextColor(Black);
+			LCD_SetTextColor(White);
 			LCD_DisplayStringLine(LINE(9),"Open directory error");
 			LCD_SetTextColor(White);
 			return 0;
@@ -200,7 +201,12 @@ FRESULT  ListSDCardCont (void * _Folder,const TCHAR* _path){
 
 
 
-void OpenFile(TCHAR * Filename){
+
+/*======================================================NOT USED============================================*/
+
+
+
+void OpenFile(TCHAR * Filename){//NOT USED
 	//ret = f_opendir(&dir,"/");
 	f_close(&file);
 	ret = f_open(&file,Filename,FA_READ | FA_WRITE);
@@ -212,7 +218,8 @@ void OpenFile(TCHAR * Filename){
 				LCD_DisplayStringLine(LINE(17),"Open file Ok");
 			}
 }
-void ReadFile(uint16_t * buff1,uint16_t * buff2,UINT * BytesRead,DWORD  _WaveCounter,char op){
+
+void ReadFile(uint16_t * buff1,uint16_t * buff2,UINT * BytesRead,DWORD  _WaveCounter,char op){//NOT USED
 	ret=f_sync (&file);
 	if(op==0){
 		ret=f_read (&file, buff1,_MAX_SS, BytesRead);
@@ -238,7 +245,7 @@ void ReadFile(uint16_t * buff1,uint16_t * buff2,UINT * BytesRead,DWORD  _WaveCou
 
 
 
-FIL * OpenWavFile(TCHAR * Filename,uint16_t * buffer1,uint16_t * buffer2,UINT * BytesRead){
+FIL * OpenWavFile(TCHAR * Filename,uint16_t * buffer1,uint16_t * buffer2,UINT * BytesRead){//NOT USED
 	FIL * PontertoFile;
 
 	ret = f_open(&file, Filename, FA_READ);

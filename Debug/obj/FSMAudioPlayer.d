@@ -36,16 +36,39 @@ obj/FSMAudioPlayer.o: \
  /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/contrib/st/STM32F4-Discovery/inc/stm32f4_discovery.h \
  /cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/rtwtypes.h \
  /cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/SD_CardController.h \
+ /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/pkg/ee.h \
+ eecfg.h \
+ /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/pkg/ee_rtdruid_versions.h \
+ /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/pkg/cpu/cortex_mx/inc/ee_cpu.h \
+ /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/pkg/cpu/common/inc/ee_compiler_gcc.h \
+ /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/pkg/cpu/common/inc/ee_types.h \
+ /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/pkg/cpu/common/inc/ee_hal_structs.h \
+ /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/pkg/cpu/cortex_mx/inc/ee_nvic.h \
+ /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/pkg/cpu/cortex_mx/inc/ee_systick.h \
+ /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/pkg/mcu/st_stm32_stm32f4xx/inc/ee_mcu.h \
+ /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/pkg/mcu/st_stm32_stm32f4xx/inc/ee_mcuirqs.h \
+ /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/pkg/kernel/fp/inc/ee_kernel.h \
+ /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/pkg/kernel/fp/inc/ee_common.h \
+ /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/pkg/kernel/alarms/inc/ee_alarms.h \
+ /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/pkg/ee_api.h \
+ /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/pkg/kernel/fp/inc/ee_api.h \
+ /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/pkg/kernel/alarms/inc/ee_api.h \
+ /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/pkg/ee_irq.h \
+ /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/pkg/kernel/fp/inc/ee_irq.h \
+ /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/pkg/cpu/cortex_mx/inc/ee_irq.h \
+ /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/pkg/cpu/cortex_mx/inc/ee_cpu.h \
+ /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/pkg/cpu/cortex_mx/inc/ee_irq_cng_cont.h \
+ /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/pkg/cpu/cortex_mx/inc/ee_context.h \
+ /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/pkg/cpu/common/inc/ee_irqstub.h \
+ /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/pkg/cpu/common/inc/ee_primitives.h \
+ /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/pkg/ee_irq.h \
  /cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/waveplayer2.h \
  /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/contrib/st/STM32F4-Discovery/inc/stm32f4_discovery.h \
- /cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/stm32f4_discovery_audio_dac.h \
- /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/contrib/st/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_gpio.h \
- /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/contrib/st/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_dma.h \
- /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/contrib/st/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_rcc.h \
- /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/contrib/st/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_tim.h \
- /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/contrib/st/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_dac.h \
- /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/contrib/st/STM32F4-Discovery/inc/stm32f4_discovery_lis302dl.h \
- /cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/stm32f4xx_it.h
+ /cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/GPIO_Conf.h \
+ /cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/Timer_Conf.h \
+ /cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/DAC_Conf.h \
+ /cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/DMA_Conf.h \
+ /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/contrib/st/STM32F4-Discovery/inc/stm32f4_discovery_lis302dl.h
 
 /cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/FSMAudioPlayer.h:
 
@@ -119,22 +142,68 @@ obj/FSMAudioPlayer.o: \
 
 /cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/SD_CardController.h:
 
+/cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/pkg/ee.h:
+
+eecfg.h:
+
+/cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/pkg/ee_rtdruid_versions.h:
+
+/cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/pkg/cpu/cortex_mx/inc/ee_cpu.h:
+
+/cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/pkg/cpu/common/inc/ee_compiler_gcc.h:
+
+/cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/pkg/cpu/common/inc/ee_types.h:
+
+/cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/pkg/cpu/common/inc/ee_hal_structs.h:
+
+/cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/pkg/cpu/cortex_mx/inc/ee_nvic.h:
+
+/cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/pkg/cpu/cortex_mx/inc/ee_systick.h:
+
+/cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/pkg/mcu/st_stm32_stm32f4xx/inc/ee_mcu.h:
+
+/cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/pkg/mcu/st_stm32_stm32f4xx/inc/ee_mcuirqs.h:
+
+/cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/pkg/kernel/fp/inc/ee_kernel.h:
+
+/cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/pkg/kernel/fp/inc/ee_common.h:
+
+/cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/pkg/kernel/alarms/inc/ee_alarms.h:
+
+/cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/pkg/ee_api.h:
+
+/cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/pkg/kernel/fp/inc/ee_api.h:
+
+/cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/pkg/kernel/alarms/inc/ee_api.h:
+
+/cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/pkg/ee_irq.h:
+
+/cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/pkg/kernel/fp/inc/ee_irq.h:
+
+/cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/pkg/cpu/cortex_mx/inc/ee_irq.h:
+
+/cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/pkg/cpu/cortex_mx/inc/ee_cpu.h:
+
+/cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/pkg/cpu/cortex_mx/inc/ee_irq_cng_cont.h:
+
+/cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/pkg/cpu/cortex_mx/inc/ee_context.h:
+
+/cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/pkg/cpu/common/inc/ee_irqstub.h:
+
+/cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/pkg/cpu/common/inc/ee_primitives.h:
+
+/cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/pkg/ee_irq.h:
+
 /cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/waveplayer2.h:
 
 /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/contrib/st/STM32F4-Discovery/inc/stm32f4_discovery.h:
 
-/cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/stm32f4_discovery_audio_dac.h:
+/cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/GPIO_Conf.h:
 
-/cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/contrib/st/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_gpio.h:
+/cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/Timer_Conf.h:
 
-/cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/contrib/st/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_dma.h:
+/cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/DAC_Conf.h:
 
-/cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/contrib/st/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_rcc.h:
-
-/cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/contrib/st/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_tim.h:
-
-/cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/contrib/st/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_dac.h:
+/cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/DMA_Conf.h:
 
 /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/contrib/st/STM32F4-Discovery/inc/stm32f4_discovery_lis302dl.h:
-
-/cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/stm32f4xx_it.h:

@@ -25,7 +25,6 @@ obj/Widget.o: /cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/Widget.c \
  /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/contrib/st/STM32F4xx_StdPeriph_Driver/inc/misc.h \
  /cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/fonts.h \
  /cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/WidgetConfig.h \
- /cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/debug.h \
  /cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/WigetsView.h
 
 /cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/Widget.h:
@@ -79,7 +78,5 @@ obj/Widget.o: /cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/Widget.c \
 /cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/fonts.h:
 
 /cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/WidgetConfig.h:
-
-/cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/debug.h:
 
 /cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/WigetsView.h:

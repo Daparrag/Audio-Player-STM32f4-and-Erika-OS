@@ -8,7 +8,6 @@
 #include "Widget.h"
 #include "WidgetConfig.h"
 #include "Event.h"
-#include "debug.h"
 #include "WigetsView.h"
 //#include "stm32f4_discovery_lcd.c"
 

@@ -14,8 +14,8 @@
 
     /* TASK definition */
     #define EE_MAX_TASK 3
-    #define TaskSDTest 0
-    #define TaskTestOk 1
+    #define TaskTestOk 0
+    #define TaskPlayBack 1
     #define TaskLCD 2
 
     /* MUTEX definition */
@@ -46,7 +46,7 @@
 
     /* Number of isr 2 */
     #define EE_MAX_ISR2   1
-    #define EE_MAX_ISR_ID 4
+    #define EE_MAX_ISR_ID 3
 
 #ifndef __DISABLE_EEOPT_DEFINES__
 
@@ -91,8 +91,6 @@
 #define EE_CORTEX_MX_SDIO_ISR_PRI EE_ISR_PRI_2
 #define EE_CORTEX_MX_DMA2_STREAM3_ISR SD_SDIO_DMA_IRQHandler
 #define EE_CORTEX_MX_DMA2_STREAM3_ISR_PRI EE_ISR_PRI_2
-#define EE_CORTEX_MX_DMA1_STREAM5_ISR DAC_DMA_IRQHandler
-#define EE_CORTEX_MX_DMA1_STREAM5_ISR_PRI EE_ISR_PRI_2
 
 
 /***************************************************************************

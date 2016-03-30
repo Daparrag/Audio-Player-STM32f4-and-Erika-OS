@@ -25,10 +25,14 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f4xx.h"
 #include "stm32f4_discovery.h"
-#include "stm32f4_discovery_audio_dac.h"
+#include "stm32f4_discovery.h"
+#include "GPIO_Conf.h"
+#include "Timer_Conf.h"
+#include "DAC_Conf.h"
+#include "DMA_Conf.h"
+
 #include "stm32f4_discovery_lis302dl.h"
 #include <stdio.h>
-#include "stm32f4xx_it.h"
 #include "ff.h"
 #include "stm32f4_discovery_lcd.h"
 
@@ -86,12 +90,27 @@ typedef enum
 #define  BITS_PER_SAMPLE_16                  16
 
 /* Exported macro ------------------------------------------------------------*/
+extern FIL fileR;
+extern  UINT BytesRead;
+extern __IO uint8_t AudioPlayStart;
+
 
 /* Exported functions ------------------------------------------------------- */
+
+uint32_t WavePlayerInit(uint32_t AudioFreq);
+uint32_t MyReadUnit(uint8_t *buffer, uint8_t idx, uint8_t NbrOfBytes, Endianness BytesFormat);
+void WAVEPlayerInterruptHandler(void);
+void showWavelength(void);
+ErrorCode WaveParsing(uint32_t *FileLen);
+ErrorCode WavePlayer_MonoWaveParsing(uint8_t *DirName, uint8_t *FileName, uint32_t *FileLen);
+
+/*=========================================================================================================*/
 void WaveDMA_Interrupt_Handler(void);
 void Codec_DMA_DAC_TransferComplete_CallBack (uint32_t pBuffer, uint32_t Size);
 void Codec_DMA_DAC__HalfTransfer_CallBack(uint32_t pBuffer, uint32_t Size);
 void Codec_DMA_DAC_Error_CallBack(void* pData);
-uint32_t MyReadUnit(uint8_t *buffer, uint8_t idx, uint8_t NbrOfBytes, Endianness BytesFormat);
-ErrorCode WaveParsing(uint32_t *FileLen);
+void UpdatePointers(void);
+void AudioPlayerStart(uint16_t* pBuffer, uint32_t Size);
+void WaveUpdateDatalength(void);
+void showWavelength(void);
 #endif /* __WAVE_PLAYER_H */

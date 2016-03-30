@@ -166,7 +166,7 @@ LIB_OPT  += __LIB_STM32F4_DISCOVERY__
 # Sources
 #
 ############################################################################
-APP_SRCS += eecfg.c Event.c Widget.c WidgetConfig.c SW_wrapper.c STMPE811QTR.c diskio.c ff.c uart_print_red.c SD_CardController.c FileManagement.c stm32f4_discovery_audio_dac.c waveplayer2.c Touch.c WigetsView.c pictures.c FSMAudioPlayer.c code.c
+APP_SRCS += eecfg.c Event.c Widget.c WidgetConfig.c STMPE811QTR.c diskio.c ff.c uart_print_red.c SD_CardController.c FileManagement.c GPIO_Conf.c Timer_Conf.c DAC_Conf.c DMA_Conf.c waveplayer2.c Touch.c WigetsView.c pictures.c FSMAudioPlayer.c code.c
 
 
 ############################################################################

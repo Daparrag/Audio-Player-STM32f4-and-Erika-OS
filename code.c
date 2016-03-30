@@ -54,7 +54,6 @@
 //#include "stm32f4_discovery_lcd.c"
 //#include "stm32f4xx.h"
 //#include "AudioLibConfig.h"
-#include "SW_wrapper.h"
 #include "Touch.h"
 #include "lcd_add.h"
 #include "fonts.h"
@@ -69,10 +68,8 @@
 #include "WidgetConfig.h"
 #include "Touch.h"
 #include "Event.h"
-#include "SW_wrapper.h"
 #include "lcd_add.h"
 #include "fonts.h"
-#include "debug.h"
 //#include "stm32f4_discovery_audio_codec.h"
 
 
@@ -82,7 +79,8 @@ TCHAR Indextotest[13]; //to delate
 TCHAR Indextotest1[13];
 FSM MyFSM;
 FSM AudioPlayer;
-
+int imageCounter=0;
+char SW=0;
 /*
  * SysTick ISR2
  */
@@ -118,14 +116,26 @@ ISR1(SD_SDIO_DMA_IRQHANDLER) {
  * @param  None
  * @retval None
 */
+char SetupImagePlay(){
+
+	if(imageCounter<=50){
+		imageCounter++;
+	}
+	else{
+		imageCounter=0;
+		return 1;
+	}
+	return 0;
 
 
-ISR1(DAC_DMA_IRQHandler) {
-/* Process DMA1 Stream5 Interrupt Sources */
-	DMA1_Channel5_IRQHandler();
 
 }
 
+//ISR1(DAC_DMA_IRQHandler) {
+///* Process DMA1 Stream5 Interrupt Sources */
+//	void DMA1_Channel5_IRQHandler();
+//
+//}
 
 void StartSDCard(){
 		DrawInit(MyWatchScr);
@@ -133,8 +143,8 @@ void StartSDCard(){
 		LCD_SetTextColor(White);
 		LCD_SetFont(&Font8x12);
 		mount_SDCard();
-		Folder =(List*) OpenFolder("/");
-		ListFolderSDCard(Folder);
+		Folder =(List*) OpenFolder("/");//Set up the list
+		ListFolderSDCard(Folder);//
 		char CurrentIndex=PrintFolder(Folder,Ctail->indextail);
 		MarkFolder(Folder, 0);
 		//Folder =(List*) SDCardNextFolder ("/Floder10");
@@ -154,21 +164,63 @@ TASK(TaskLCD)
 	}
 }
 
-TASK(TaskSDTest)
+TASK(TaskPlayBack)
 {
-	STM_EVAL_LEDToggle(LED6);
+	CancelAlarm(AlarmTaskLCD);
+	CancelAlarm(AlarmTaskTest);
+	while(1){
+		  			     volatile ITStatus it_st;
+		  			  	 it_st = RESET;
+		  			  	//SetupImagePlay();
+		  			  	 while(it_st != SET) {
+		  			  	 it_st = DMA_GetFlagStatus(DMA1_Stream5, DMA_FLAG_HTIF5);
+		  			  	 }
+		  			  	 f_read (&fileR,&BufferDMA[0],256,&BytesRead);
+		  			  	 DMA_ClearFlag(DMA1_Stream5, DMA_FLAG_HTIF5);
+		  			       if(BytesRead<256)break;//break;}
+		  			     if(SetupImagePlay()){
+		  			    	 if (SW){
+		  			    		DrawOn(&PlayScr[BDISK]);
+		  			    	 	 SW=!SW;
+		  			    	 }else{
+		  			    		DrawOff(&PlayScr[BDISK]);
+		  			    		SW=!SW;
+		  			    	 }
+
+		  			     }
+
+		  			       it_st = RESET;
+		  			       while(it_st != SET) {
+		  			       it_st = DMA_GetFlagStatus(DMA1_Stream5, DMA_FLAG_TCIF5);
+		  			       }
+		  			       f_read (&fileR,&BufferDMA[256],256,&BytesRead);
+		  			       DMA_ClearFlag(DMA1_Stream5, DMA_FLAG_TCIF5);
+		  			       if(BytesRead<256)break;
+		  		}
+	AudioPlayStart=0;
+	TIM_Cmd(TIM6, DISABLE);
+	f_close(&fileR);
+	StartSDCard();
+	SetRelAlarm(AlarmTaskLCD, 10, 50);
+	SetRelAlarm(AlarmTaskTest, 1, 10);
 }
 
 
 TASK(TaskTestOk)
 {
+	//CancelTask(TaskPlayBack);
 	if (IsEvent(UP)||IsEvent(DOWN)||IsEvent(LEFT)||IsEvent(RIGHT)){
 		STM_EVAL_LEDOn(LED4);
 		FSMFolder(&MyFSM,&AudioPlayer, Folder, Ctail->indextail);
 				//SWatchFSMDispatch(&MyFSM,&MyWatchScr,&mywatch);
 				ClearEvents();
 			}
+	//ActivateTask(TaskPlayBack);
 	STM_EVAL_LEDOff(LED4);
+	if(AudioPlayStart==1){
+		ActivateTask(TaskPlayBack);
+	}
+
 }
 
 
@@ -203,8 +255,14 @@ int main(void)
 	//RCC_GetClocksFreq(&RCC_Clocks);
 	//SysTick_Config(RCC_Clocks.HCLK_Frequency / 100);
 
+
 	STM_EVAL_LEDInit(LED4);
 	STM_EVAL_LEDInit(LED6);
+	STM_EVAL_LEDOn(LED4);
+
+
+
+
 
 	/* Initializes LCD and touchscreen */
 		IOE_Config();
@@ -214,13 +272,14 @@ int main(void)
 		InitTouch(-0.102, 0.0656, -335, 10);
 		//Initialize uart.
 
-		uart_init();//Not necessary ?
+		//uart_init();//Not necessary ?
 		//Start Program :)
 	StartSDCard();
 	//EVAL_AUDIO_SetAudioInterface(AUDIO_INTERFACE_I2S);
 	SetRelAlarm(AlarmTaskLCD, 10, 50);
-	SetRelAlarm(TaskSDTest, 10, 500);
-	SetRelAlarm(AlarmTaskTestOk, 10, 100);
+	//ActivateTask(TaskTestOk);
+	SetRelAlarm(AlarmTaskTest, 1, 10);
+	//SetRelAlarm(AlarmTaskTestOk, 10, 100);
 
 	//EVAL_AUDIO_SetAudioInterface(AUDIO_INTERFACE_I2S);
 	//EVAL_AUDIO_Init(OUTPUT_DEVICE_HEADPHONE, 100, 48000 );

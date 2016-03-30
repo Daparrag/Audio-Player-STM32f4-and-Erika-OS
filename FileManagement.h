@@ -19,19 +19,19 @@ typedef struct HeadTail_List HTList;
 
 struct Listdef{
 
-	char index;
-	char isfile;
+	char index; //ID
+	char isfile;//indicate if the element is a file or directory
 	//DIR InfoDIR; const TCHAR*	pat
 	//FIL Filedata;BYTE*	dir_ptr;
-	TCHAR	fname[13];//FILINFO infofile;
+	TCHAR	fname[13];//FILINFO infofile;//file or folder name
 	//f_getcwd (
 	 TCHAR buff[13]; /* [OUT] Buffer to return path name */
 	  //UINT len     /* [IN] The length of the buffer */
 	//);
 
-	List * SubFolder;
-	List * nextElement;
-	List * prevElement;
+	List * SubFolder;//not used
+	List * nextElement;//next element of the list
+	List * prevElement;//-last element of the list
 };
 
 
@@ -67,15 +67,15 @@ struct HeadTail_List * CList;
 
 
 void Create_Sublist(List * _list,char IndexHT);
-struct Listdef * search_in_list(char Index);
-void add_to_list (List * _list,uint8_T Index, char isdir, char add_to_end,char IndexTailHeadList,FILINFO *infofile);
+struct Listdef * search_in_list(char Index);//Important
+void add_to_list (List * _list,uint8_T Index, char isdir, char add_to_end,char IndexTailHeadList,FILINFO *infofile);//Important
 struct Listdef * create_Slist(char Index, char isdir,char IndexHT);//a modificar.
 struct Listdef * create_list(char Index, char isdir,char IndexHT,FILINFO *infofile);
 void AddListHeadTail(char _index,struct headdef *_head,struct taildef *_tail);
 void CreateListHeadTail(char _index,struct headdef *_head,struct taildef *_tail);
 void SetUpCurrentHeadTail(struct headdef* new_head,struct taildef * new_tail);
 char  PrintFolder(List * _list,char maxIndex);
-void  ListFolderSDCard(List * _Folder);
-void MarkFolder(List * _list, char i);
-void UnMarkFolder(List * _list, char i);
+//                          void  ListFolderSDCard(List * _Folder);//Important
+void MarkFolder(List * _list, char i);//Important
+void UnMarkFolder(List * _list, char i);//Important
 #endif

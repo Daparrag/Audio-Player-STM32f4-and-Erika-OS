@@ -10,28 +10,28 @@
  *
  **************************************************************************/
     /* Definition of task's body */
-    DeclareTask(TaskSDTest);
     DeclareTask(TaskTestOk);
+    DeclareTask(TaskPlayBack);
     DeclareTask(TaskLCD);
 
     const EE_THREAD_PTR EE_hal_thread_body[EE_MAX_TASK] = {
-        &FuncTaskSDTest,		/* thread TaskSDTest */
         &FuncTaskTestOk,		/* thread TaskTestOk */
+        &FuncTaskPlayBack,		/* thread TaskPlayBack */
         &FuncTaskLCD 		/* thread TaskLCD */
 
     };
 
     /* ready priority */
     const EE_TYPEPRIO EE_th_ready_prio[EE_MAX_TASK] = {
-        0x2U,		/* thread TaskSDTest */
-        0x1U,		/* thread TaskTestOk */
+        0x2U,		/* thread TaskTestOk */
+        0x1U,		/* thread TaskPlayBack */
         0x4U 		/* thread TaskLCD */
     };
 
     /* dispatch priority */
     const EE_TYPEPRIO EE_th_dispatch_prio[EE_MAX_TASK] = {
-        0x2U,		/* thread TaskSDTest */
-        0x1U,		/* thread TaskTestOk */
+        0x2U,		/* thread TaskTestOk */
+        0x1U,		/* thread TaskPlayBack */
         0x4U 		/* thread TaskLCD */
     };
 
@@ -80,8 +80,8 @@
  *
  **************************************************************************/
     const EE_alarm_ROM_type   EE_alarm_ROM[EE_ALARM_ROM_SIZE] = {
+        {0, EE_ALARM_ACTION_TASK    , TaskPlayBack, NULL},
         {0, EE_ALARM_ACTION_TASK    , TaskTestOk, NULL},
-        {0, EE_ALARM_ACTION_TASK    , TaskSDTest, NULL},
         {0, EE_ALARM_ACTION_TASK    , TaskLCD, NULL}
     };
 

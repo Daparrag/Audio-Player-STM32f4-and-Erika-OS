@@ -127,7 +127,7 @@ void FSMFolder(FSM * _folderState,FSM * _PlayerFSM ,List * _list, char Maxindex)
 									//LCD_DisplayStringXY(0,10,);
 									if(IsRoot(&CurrentPath)){//Evaluate if the current path is a root
 										strcat(CurrentPath,Element->fname); //concatenate The path with the new element
-										_list =(List*) SDCardNextFolder (&CurrentPath);
+										_list =(List*) SDCardNextFolder (CurrentPath);
 										DrawInit(MyWatchScr);
 										ListFolderSDCard(_list);
 										if(!FolderEmpty()){
@@ -145,7 +145,7 @@ void FSMFolder(FSM * _folderState,FSM * _PlayerFSM ,List * _list, char Maxindex)
 										strcat(CurrentPath,FolderPath);
 										//LCD_DisplayStringXY(0,0,CurrentPath);
 										//LCD_DisplayStringXY(0,10,CurrentPath);
-										_list =(List*) SDCardNextFolder (&CurrentPath);
+										_list =(List*) SDCardNextFolder (CurrentPath);
 										DrawInit(MyWatchScr);
 										ListFolderSDCard(_list);
 										if(!FolderEmpty()){
@@ -214,7 +214,7 @@ void FSMFolder(FSM * _folderState,FSM * _PlayerFSM ,List * _list, char Maxindex)
 												//LCD_DisplayStringXY(0,10,);
 												if(IsRoot(&CurrentPath)){//Evaluate if the current path is a root
 													strcat(CurrentPath,Element->fname); //concatenate The path with the new element
-													_list =(List*) SDCardNextFolder (&CurrentPath);
+													_list =(List*) SDCardNextFolder (CurrentPath);
 													DrawInit(MyWatchScr);
 													ListFolderSDCard(_list);
 													if(!FolderEmpty()){
@@ -231,7 +231,7 @@ void FSMFolder(FSM * _folderState,FSM * _PlayerFSM ,List * _list, char Maxindex)
 													strcpy(FolderPath,"/");
 													strcat(FolderPath,Element->fname);
 													strcat(CurrentPath,FolderPath);
-													_list =(List*) SDCardNextFolder (&CurrentPath);
+													_list =(List*) SDCardNextFolder (CurrentPath);
 													DrawInit(MyWatchScr);
 													ListFolderSDCard(_list);
 													if(!FolderEmpty()){

@@ -32,8 +32,10 @@ WAVE_FormatTypeDef WAVE_Format;
 uint16_t buffer1[_MAX_SS] ={0x00};
 uint16_t buffer2[_MAX_SS] ={0x00};
 uint8_t buffer_switch = 1;
+uint8_t EndF = 0;
 FIL fileR;
 FILINFO fno;
+
 //uint16_t *CurrentPos;
 
 
@@ -44,7 +46,7 @@ __IO uint8_t AudioPlayStart = 0;
 __IO uint8_t RepeatState;
 uint32_t AudioRemSize;
 __IO uint8_t Command_index;
-
+__IO uint8_t volume = 70;
 
 /*------------------ private Function Definition-------------*/
 ErrorCode WavePlayer_WaveParsing(uint32_t *FileLen);
@@ -73,46 +75,50 @@ WavePlayBack(uint32_t  SampleRate){
 	  AudioPlayStart = 1;
 	  RepeatState =0;
 	/*Configure: /TIM6/DMA1/DAC/GPIOA  */
-	  AudioPlayerInit(SampleRate);
-	  AudioRemSize = 0;
+	 WavePlayerInit(SampleRate);
+	 // AudioPlayerInit(SampleRate);
+
+	 // AudioRemSize = 0;
 	  if(f_lseek(&fileR, WaveCounter)!=FR_OK){
 		  LCD_ClearLine(LINE(17));
 		  LCD_DisplayStringLine(LINE(17),"Error in f_lseek Operation");
-	  }	else if (f_read (&fileR, buffer1, _MAX_SS, &BytesRead) | f_read (&fileR, buffer2, _MAX_SS, &BytesRead) != FR_OK){
+
+	  }	else if (f_read (&fileR,&BufferDMA[0],512,&BytesRead) != FR_OK){
 		  LCD_ClearLine(LINE(17));
 		  LCD_DisplayStringLine(LINE(17),"error read file");
 
 	  	  }else{
-	  		AudioPlayerStart((uint32_t) buffer1, _MAX_SS);
-	  		buffer_switch = 1;
-	  		XferCplt = 0;
-	  		while (WaveDataLength & XferCplt){
-	  		XferCplt=0;
-	  			if(buffer_switch == 0)
-	        	{
-	        	/* Play data from buffer1 */
-	  			AudioPlayerStart((uint32_t)buffer1, _MAX_SS);
-	          	  /* Store data in buffer2 */
-	          	  f_read (&fileR, buffer2, _MAX_SS, &BytesRead);
-	          	  buffer_switch = 1;
-	        	}
-	        	else
-	        	{
-	        	/* Play data from buffer2 */
-	        	AudioPlayerStart((uint32_t)buffer2, _MAX_SS);
-	          	  /* Store data in buffer1 */
-	          	  f_read (&fileR, buffer1, _MAX_SS, &BytesRead);
-	          	  buffer_switch = 0;
-	        	}
-	  		//PauseResumeStatus = 1;
-	  		}	///Count = 0;
-	  	 }
+	  		TIM_Cmd(TIM6, ENABLE);
+	  		//ActivateTask(TaskPlayBack);
+	  		/*
+	  		while(1){
+	  			     volatile ITStatus it_st;
+	  			  	 it_st = RESET;
+	  			  	 while(it_st == RESET) {
+	  			  	 it_st = DMA_GetFlagStatus(DMA1_Stream5, DMA_FLAG_HTIF5);
+	  			  	 }
+	  			  	 f_read (&fileR,&BufferDMA[0],256,&BytesRead);
+	  			  	 DMA_ClearFlag(DMA1_Stream5, DMA_FLAG_HTIF5);
+	  			       if(BytesRead<256)break;//break;}
 
+	  			       it_st = RESET;
+	  			       while(it_st == RESET) {
+	  			       it_st = DMA_GetFlagStatus(DMA1_Stream5, DMA_FLAG_TCIF5);
+	  			       }
+	  			       f_read (&fileR,&BufferDMA[256],256,&BytesRead);
+	  			       DMA_ClearFlag(DMA1_Stream5, DMA_FLAG_TCIF5);
+	  			       if(BytesRead<256)break;
+	  		}
+	  		TIM_Cmd(TIM6, DISABLE);
+	  		f_close(&fileR);
+*/
+	  	  }
+//
 }
 
 
 
-WavePlayInit(TCHAR * WaveFileName){
+void WavePlayInit(TCHAR * WaveFileName){
 
 	if (f_open(&fileR,(TCHAR*)WaveFileName ,FA_READ) != FR_OK)
 	    {	Command_index = 1;
@@ -133,7 +139,24 @@ WavePlayInit(TCHAR * WaveFileName){
 	    			}
 }
   
-  
+
+uint32_t WavePlayerInit(uint32_t AudioFreq)
+{
+	init_gpio();
+	init_timer_Setup(AudioFreq);
+	init_dac_Ch1();
+	init_dma();
+ return 0;
+}
+
+
+
+void AudioPlayerStart(uint16_t* pBuffer, uint32_t Size){
+
+
+ }
+
+
 ErrorCode WaveParsing(uint32_t *FileLen)
 {
   uint32_t temp = 0x00;
@@ -197,7 +220,7 @@ ErrorCode WaveParsing(uint32_t *FileLen)
 
   /* Read the number of bits per sample */
   WAVE_Format.BitsPerSample = MyReadUnit((uint8_t*)buffer1, 34, 2, LittleEndian);
-  if (WAVE_Format.BitsPerSample != BITS_PER_SAMPLE_16)
+  if (WAVE_Format.BitsPerSample != BITS_PER_SAMPLE_8)
   {
 	  LCD_ClearLine(LINE(18));
 	  LCD_DisplayStringLine(LINE(18),"Unsupporetd_Bits_Per_Sample");
@@ -229,14 +252,14 @@ ErrorCode WaveParsing(uint32_t *FileLen)
     SpeechDataOffset += 10 + temp;
   }
   /* Read the Data chunk, must be 'data' */
-  temp = MyReadUnit((uint8_t*)buffer1, SpeechDataOffset, 4, BigEndian);
-  SpeechDataOffset += 4;
-  if (temp != DATA_ID)
-  {
-	  LCD_ClearLine(LINE(18));
-	  LCD_DisplayStringLine(LINE(18),"Unvalid_DataChunk_ID");
-    return(Unvalid_DataChunk_ID);
-  }
+ // temp = MyReadUnit((uint8_t*)buffer1, SpeechDataOffset, 4, BigEndian);
+ // SpeechDataOffset += 4;
+ // if (temp != DATA_ID)
+ // {
+//	  LCD_ClearLine(LINE(18));
+//	  LCD_DisplayStringLine(LINE(18),"Unvalid_DataChunk_ID");
+ //   return(Unvalid_DataChunk_ID);
+ // }
 
   /* Read the number of sample data */
   WAVE_Format.DataSize = MyReadUnit((uint8_t*)buffer1, SpeechDataOffset, 4, LittleEndian);
@@ -332,3 +355,17 @@ void Codec_DMA_DAC_Error_CallBack(void* pData)
   /* could also generate a system reset to recover from the error */
   /* .... */
 }
+
+void UpdatePointers(void)
+{
+  if (WaveDataLength){
+		WaveDataLength -=(_MAX_SS/2);
+		XferCplt = 1;
+		}
+
+  if (WaveDataLength < (_MAX_SS/2)){
+		WaveDataLength = 0;
+		XferCplt = 0;
+		}
+}
+

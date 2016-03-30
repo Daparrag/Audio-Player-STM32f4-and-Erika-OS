@@ -1,6 +1,4 @@
-obj/stm32f4_discovery_audio_dac.o: \
- /cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/stm32f4_discovery_audio_dac.c \
- /cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/stm32f4_discovery_audio_dac.h \
+obj/Timer_Conf.o: /cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/Timer_Conf.c \
  /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/contrib/st/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h \
  /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/contrib/st/CMSIS/Include/core_cm4.h \
  /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/contrib/st/CMSIS/Include/core_cmInstr.h \
@@ -22,13 +20,7 @@ obj/stm32f4_discovery_audio_dac.o: \
  /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/contrib/st/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_tim.h \
  /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/contrib/st/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_usart.h \
  /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/contrib/st/STM32F4xx_StdPeriph_Driver/inc/misc.h \
- /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/contrib/st/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_gpio.h \
- /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/contrib/st/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_dma.h \
- /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/contrib/st/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_rcc.h \
- /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/contrib/st/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_tim.h \
- /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/contrib/st/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_dac.h
-
-/cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/stm32f4_discovery_audio_dac.h:
+ /cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/Timer_Conf.h
 
 /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/contrib/st/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h:
 
@@ -72,12 +64,4 @@ obj/stm32f4_discovery_audio_dac.o: \
 
 /cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/contrib/st/STM32F4xx_StdPeriph_Driver/inc/misc.h:
 
-/cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/contrib/st/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_gpio.h:
-
-/cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/contrib/st/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_dma.h:
-
-/cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/contrib/st/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_rcc.h:
-
-/cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/contrib/st/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_tim.h:
-
-/cygdrive/c/EMBEDD~1/Software/EE_RTW~1/eclipse/plugins/COB761~1.201/ee_files/contrib/st/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_dac.h:
+/cygdrive/c/Users/Homero/workspaceJuno/SDCardDemo/Timer_Conf.h:
