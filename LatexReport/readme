@@ -1,1 +1,4 @@
-vvv
+On this document is contained the principal topics developed during the module embedded system design. where is exploited in detail some that is called model base design; Therefore the document is focused on three developing phases such as: requirements, behavior, architecture, and verification.
+\newline
+\newline
+The above schema will be applied in one specific project called audio playback  which consist of a simple graphical application able to reproduce files in format WAV allocated in an external flash disk commonly called SDCard.    
