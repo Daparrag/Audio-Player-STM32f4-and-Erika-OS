@@ -1,6 +1,8 @@
 # SD_DAC_AudioPlayerERIKA
 Audio Player implementation over STM32F4 discovery board
 
+<img src="https://github.com/Daparrag/Audio-Player-STM32f4-and-Erika-OS/blob/master/ImplementationDiagram.png" alt="Implementation Diagram" width="1000px" />
+
 This Project repesent an implementation of an audio player over the operating system ERIKA and the STM32f4 discovery Board 
                         
 The implementation consist of read the wav file from the SDcard using the SDIO and DMA2, then independently the DMA1 is able to acces to the memory
@@ -31,5 +33,11 @@ If you want excuted this program in your machine follow the next steps.
 
 7. end
 
-    
+## This is How it looks
+
+<img src="https://github.com/Daparrag/Audio-Player-STM32f4-and-Erika-OS/blob/master/AudioPlayer1.png" alt="SD-CARD view" width="1000px" />
+
+<img src="https://github.com/Daparrag/Audio-Player-STM32f4-and-Erika-OS/blob/master/AudioPlayer2.png" alt="Reproductor view" width="1000px" />
+
+
     
